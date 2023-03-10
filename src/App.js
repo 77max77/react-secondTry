@@ -40,6 +40,10 @@ import Divider from '@mui/material/Divider';
 
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+
 export default function App() {
   return (
     <div>
@@ -89,7 +93,8 @@ function FirstCard() {
             //title=
             />
           </Grid >
-          <Grid xs item  sx={{mt:10,ml:10,mr:10}}>
+          <Card sx={{mt:8,mb:5}}>
+          <Grid xs item  sx={{mt:3,ml:3,mr:10}}>
             <CardActions sx={{ml:1,mb:2}} >
               <Link  size="large"  color="#78909c">제조사</Link>
             </CardActions>
@@ -104,15 +109,20 @@ function FirstCard() {
             <Grid item sx={{mb:10}} >
               <Link color="#7e57c2">리뷰</Link>
               </Grid>
-              
             </Grid>
             < GutterlessList></ GutterlessList>
           </CardContent>
         </Grid>
-          <Grid item>
-                
-          </Grid>
-
+        </Card>
+          <Grid xs item sx={{mt:0,ml:3}}>
+            <Typography  variant="h3" component="div" sx={{ml:0,mr:5,mt:10,fontSize:30 }}   gutterBottom>
+            최저가
+            </Typography>
+            < BasicList></BasicList>
+            </Grid>
+            <Grid item sx={{mt:0}}>
+            <Link variant="h3" component="div" sx={{ml:0,mr:5,mt:10,fontSize:30 }}   gutterBottom>xxxx원</Link>
+            </Grid>
         </Grid>
       </Card>
      
@@ -230,10 +240,8 @@ function OutlinedButtons() {
 
 function GutterlessList() {
   return (
-
-    <Card > 
     <Grid container>
-    <Grid item xs sx={{mt:2.5,amt:3,ml:2}}>
+    <Grid item xs sx={{mt:0,amt:3,ml:2}}>
       랭킹
     </Grid>
     <Grid item >
@@ -254,44 +262,32 @@ function GutterlessList() {
       </List>
       </Grid>
       </Grid>
-    </Card>
+    
   );
 }
 
 function BasicList() {
   return (
     <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      <nav aria-label="main mailbox folders">
-        <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <InboxIcon />
-              </ListItemIcon>
-              <ListItemText primary="Inbox" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <DraftsIcon />
-              </ListItemIcon>
-              <ListItemText primary="Drafts" />
-            </ListItemButton>
-          </ListItem>
-        </List>
-      </nav>
       <Divider />
       <nav aria-label="secondary mailbox folders">
         <List>
           <ListItem disablePadding>
             <ListItemButton>
-              <ListItemText primary="Trash" />
+              <ListItemText primary="text 1" />
+              <ListItemText primary="xxxx원" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
-              <ListItemText primary="Spam" />
+            <ListItemButton>
+              <ListItemText primary="text 2" />
+              <ListItemText primary="xxxx원" />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemText primary="text 3" />
+              <ListItemText primary="xxxx원" />
             </ListItemButton>
           </ListItem>
         </List>
