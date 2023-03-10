@@ -182,28 +182,16 @@ function ThirdCard() {
 function ForthCard() {
   return (
     <Card sx={{ minWidth: 275 }}>
+         <Box
+          display="flex"
+          justifyContent="flex-end"
+          alignItems="flex-end"
+          sx={{mt:5,mr:5}}
+        >
+        </Box>
       <CardContent>
-      <Grid container>
-        <Grid item xs>
-        <Typography  variant="h3" component="div" sx={{ml:3,mt:3,fontSize: 20  }} startIcon={<Brightness5Icon/>} gutterBottom>
-          아침, 식후
-        </Typography>
-        </Grid>
-        <Grid item sx={{ml:3,mt:3,fontSize: 20 }}>
-        <BasicChips2 ></BasicChips2>
-        </Grid>
-        </Grid>
-        <Divider sx={{mt:2}} variant="middle" />
         <Grid container>
-        <Grid item xs>
-        <Typography  variant="h3" component="div" sx={{ml:3,mt:3,fontSize: 20 }} startIcon={<NightlightIcon/>}  gutterBottom>
-          저녁, 식후
-        </Typography>
-        </Grid>
-        <Grid item sx={{ml:3,mt:3,fontSize: 20 }}>
-        <BasicChips2 ></BasicChips2>
-        </Grid>
-        </Grid>
+        </Grid>      
       </CardContent>
     </Card>
   );
