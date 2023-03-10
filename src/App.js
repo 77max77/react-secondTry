@@ -102,7 +102,7 @@ const labels = {
 
 
 function TextRating() {
-  const value = 3.5;
+  const value = 4;
 
   return (
     <Box
