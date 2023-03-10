@@ -19,6 +19,8 @@ import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 import Box from '@mui/material/Box';
 
+import NightlightIcon from '@mui/icons-material/Nightlight';
+import Brightness5Icon from '@mui/icons-material/Brightness5';
 import ShareIcon from '@mui/icons-material/Share';
 
 import Link from '@mui/material/Link';
@@ -33,17 +35,27 @@ import Stack from '@mui/material/Stack';
 
 import IconButton from '@mui/material/IconButton';
 
+import Divider from '@mui/material/Divider';
+
+
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 export default function App() {
   return (
     <div>
-      <Container fixed>
+      <Container fixed sx={{mt:5}}>
+      <Link fixed size="large"  color="#78909c">제조사</Link>
+      -
+      <Link fixed size="large"  color="#78909c">product name</Link>
       <FirstCard></FirstCard>
-      <Typography fixed sx={{mt:10,mb:5,fontSize:35}}  variant="h3">
+      <Typography fixed sx={{mt:10,mb:5,fontSize:25}}  variant="h3">
         이 제품의 효과 
       </Typography>
       <SecondCard></SecondCard>
+      <Typography fixed sx={{mt:10,mb:5,fontSize:25}}  variant="h3">
+        추천 섭취 시간 및 복용법
+      </Typography>
+      <ThirdCard></ThirdCard>
       </Container>
      
     </div>
@@ -60,16 +72,24 @@ const styling ={
 
 function FirstCard() {
   return (
-      <Card fixed sx={{mt:5,amt:20, minWidth: 200 }}>
+      <Card sx={{mt:0,amt:10}}>
+        <Box
+          display="flex"
+          justifyContent="flex-end"
+          alignItems="flex-end"
+          sx={{mt:5,mr:5}}
+        >
+        <OutlinedButtons  ></OutlinedButtons>
+        </Box>
         <Grid container>
-          <Grid item  sx={{mt:5,mb:5,mr:0}}>
+          <Grid item  sx={{mt:0,mb:5,mr:0}}>
             <CardMedia 
-            sx={{ml:5, height: 600,width:200 }}
+            sx={{ml:5, height: 400,width:200 }}
             image="https://questlife.co.kr/web/product/big/202107/f23dcb994e95fc8258874500da0313e2.png"
             //title=
             />
           </Grid >
-          <Grid item  sx={{mt:20,ml:10,mr:20}}>
+          <Grid item  sx={{mt:10,ml:10,mr:10}}>
             <CardActions sx={{ml:1,mb:2}} >
               <Link  size="large"  color="#78909c">제조사</Link>
             </CardActions>
@@ -88,9 +108,7 @@ function FirstCard() {
             < GutterlessList></ GutterlessList>
           </CardContent>
         </Grid>
-          <Grid item sx={{mt:5,mb:5,ml:20}}>
-            <OutlinedButtons ></OutlinedButtons>
-          </Grid>
+
         </Grid>
       </Card>
      
@@ -114,11 +132,49 @@ function SecondCard() {
   );
 }
 
+function ThirdCard() {
+  return (
+    <Card sx={{ minWidth: 275 }}>
+      <CardContent>
+      <Grid container>
+        <Grid item xs>
+        <Typography  variant="h3" component="div" sx={{ml:3,mt:3,fontSize: 20  }} startIcon={<Brightness5Icon/>} gutterBottom>
+          아침, 식후
+        </Typography>
+        </Grid>
+        <Grid item sx={{ml:3,mt:3,fontSize: 20 }}>
+        <BasicChips2 ></BasicChips2>
+        </Grid>
+        </Grid>
+        <Divider sx={{mt:2}} variant="middle" />
+        <Grid container>
+        <Grid item xs>
+        <Typography  variant="h3" component="div" sx={{ml:3,mt:3,fontSize: 20 }} startIcon={<NightlightIcon/>}  gutterBottom>
+          저녁, 식후
+        </Typography>
+        </Grid>
+        <Grid item sx={{ml:3,mt:3,fontSize: 20 }}>
+        <BasicChips2 ></BasicChips2>
+        </Grid>
+        </Grid>
+      </CardContent>
+    </Card>
+  );
+}
+
 function BasicChips() {
   return (
     <Stack sx={{ml:3}}direction="row" spacing={1}>
       <Chip label="text"  variant="outlined"/>
       <Chip label="text" variant="outlined" />
+    </Stack>
+  );
+}
+
+function BasicChips2() {
+  return (
+    <Stack sx={{ml:3}}direction="row" spacing={1}>
+      <Chip label="text"  />
     </Stack>
   );
 }
@@ -171,7 +227,7 @@ function OutlinedButtons() {
 function GutterlessList() {
   return (
 
-    <Card sx={{bgcolor:"#f5f5f5"}}> 
+    <Card > 
     <Grid container>
     <Grid item xs sx={{mt:2.5,amt:3,ml:2}}>
       랭킹
