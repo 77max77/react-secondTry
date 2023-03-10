@@ -35,7 +35,7 @@ export default function App() {
   return (
     <div>
       <Container fixed>
-      <BasicCard></BasicCard>
+      <BasicCard ></BasicCard>
       </Container>
     </div>
   );
@@ -51,44 +51,37 @@ const styling ={
 
 function BasicCard() {
   return (
-    <Card sx={{mt:20, minWidth: 200 }}>
-      <Grid container >
-      <Grid item xs sx={{mt:5,mb:5}}>
-       <CardMedia
-        sx={{ height: 600,width:400 }}
-        image="https://questlife.co.kr/web/product/big/202107/f23dcb994e95fc8258874500da0313e2.png"
-        //title=
-      />
-      </Grid>
-      <Grid item sx={{mt:20,ml:-100}}>
-      <CardActions>
-        <Button  size="large">제조사</Button>
-      </CardActions>
-      <CardContent>
-        <Typography sx={{mt:-4,fontSize: 30 }} color="text.secondary">
+    <Card fixed sx={{amt:20, minWidth: 200 }}>
+      <Grid container>
+        <Grid item  sx={{mt:5,mb:5,mr:0}}>
+          <CardMedia 
+          sx={{ml:5, height: 600,width:200 }}
+          image="https://questlife.co.kr/web/product/big/202107/f23dcb994e95fc8258874500da0313e2.png"
+          //title=
+          />
+        </Grid >
+        <Grid item  sx={{mt:20,ml:10,mr:20}}>
+          <CardActions >
+            <Button  size="large">제조사</Button>
+          </CardActions>
+        <CardContent>
+          <Typography sx={{mt:-4,fontSize: 30 }} color="text.secondary">
           제품명
-        </Typography>
-        <Grid container>
-          <Grid item xs>
-        <TextRating ></TextRating>
+          </Typography>
+          <Grid container>
+            <Grid item xs>
+            <TextRating ></TextRating>
           </Grid>
           <Grid item sx={{mb:10}} >
-        <Link>리뷰</Link>
-        </Grid>
-        </Grid>
-        <Grid container>
-        <Grid item xs>
-        랭킹
-        </Grid>
-        <Grid  item sx={{mt:-3}}>
-        < GutterlessList></ GutterlessList>
-        </Grid>
-        </Grid>
-      </CardContent>
+            <Link>리뷰</Link>
+            </Grid>
+          </Grid>
+          < GutterlessList></ GutterlessList>
+        </CardContent>
       </Grid>
-      <Grid item sx={{mt:5,mb:0,ml:50}}>
-      <OutlinedButtons ></OutlinedButtons>
-      </Grid>
+        <Grid item sx={{mt:5,mb:5,ml:20}}>
+          <OutlinedButtons ></OutlinedButtons>
+        </Grid>
       </Grid> 
     </Card>
   );
@@ -141,20 +134,30 @@ function OutlinedButtons() {
 
 function GutterlessList() {
   return (
-    <List sx={{ width: '100%', maxWidth: 360}}>
-      {[1, 2, 3].map((value) => (
-        <ListItem
-          key={value}
-          disableGutters
-          secondaryAction={
-            <IconButton aria-label="ChevronRight">
-              <ChevronRightIcon />
-            </IconButton>
-          }
-        >
-          <ListItemText primary={`text ${value}`} />
-        </ListItem>
-      ))}
-    </List>
+
+    <Card sx={{bgcolor:"#81d4fa"}}> 
+    <Grid container>
+    <Grid item xs sx={{mt:2.5,amt:3,ml:2}}>
+      랭킹
+    </Grid>
+    <Grid item >
+      <List sx={{ width: '100%', maxWidth: 360}}>
+        {[1, 2, 3].map((value) => (
+          <ListItem
+            key={value}
+            disableGutters
+            secondaryAction={
+              <IconButton aria-label="ChevronRight">
+                <ChevronRightIcon />
+              </IconButton>
+            }
+          >
+            <ListItemText primary={`text ${value}`} />
+          </ListItem>
+        ))}
+      </List>
+      </Grid>
+      </Grid>
+    </Card>
   );
 }
