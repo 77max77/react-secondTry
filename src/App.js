@@ -60,6 +60,9 @@ export default function App() {
         추천 섭취 시간 및 복용법
       </Typography>
       <ThirdCard></ThirdCard>
+      <Typography fixed sx={{mt:10,mb:5,fontSize:25}}  variant="h3">
+        제품 리뷰
+      </Typography>
       </Container>
      
     </div>
@@ -147,6 +150,36 @@ function SecondCard() {
 }
 
 function ThirdCard() {
+  return (
+    <Card sx={{ minWidth: 275 }}>
+      <CardContent>
+      <Grid container>
+        <Grid item xs>
+        <Typography  variant="h3" component="div" sx={{ml:3,mt:3,fontSize: 20  }} startIcon={<Brightness5Icon/>} gutterBottom>
+          아침, 식후
+        </Typography>
+        </Grid>
+        <Grid item sx={{ml:3,mt:3,fontSize: 20 }}>
+        <BasicChips2 ></BasicChips2>
+        </Grid>
+        </Grid>
+        <Divider sx={{mt:2}} variant="middle" />
+        <Grid container>
+        <Grid item xs>
+        <Typography  variant="h3" component="div" sx={{ml:3,mt:3,fontSize: 20 }} startIcon={<NightlightIcon/>}  gutterBottom>
+          저녁, 식후
+        </Typography>
+        </Grid>
+        <Grid item sx={{ml:3,mt:3,fontSize: 20 }}>
+        <BasicChips2 ></BasicChips2>
+        </Grid>
+        </Grid>
+      </CardContent>
+    </Card>
+  );
+}
+
+function ForthCard() {
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
