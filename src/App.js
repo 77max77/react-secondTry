@@ -21,7 +21,7 @@ import Box from '@mui/material/Box';
 
 import NightlightIcon from '@mui/icons-material/Nightlight';
 import Brightness5Icon from '@mui/icons-material/Brightness5';
-import ShareIcon from '@mui/icons-material/Share';
+import AddBoxIcon from '@mui/icons-material/AddBox';
 
 import Link from '@mui/material/Link';
 
@@ -89,7 +89,7 @@ function FirstCard() {
             //title=
             />
           </Grid >
-          <Grid item  sx={{mt:10,ml:10,mr:10}}>
+          <Grid xs item  sx={{mt:10,ml:10,mr:10}}>
             <CardActions sx={{ml:1,mb:2}} >
               <Link  size="large"  color="#78909c">제조사</Link>
             </CardActions>
@@ -98,16 +98,20 @@ function FirstCard() {
             product name
             </Typography>
             <Grid container>
-              <Grid item xs>
+              <Grid item >
               <TextRating ></TextRating>
             </Grid>
             <Grid item sx={{mb:10}} >
               <Link color="#7e57c2">리뷰</Link>
               </Grid>
+              
             </Grid>
             < GutterlessList></ GutterlessList>
           </CardContent>
         </Grid>
+          <Grid item>
+                
+          </Grid>
 
         </Grid>
       </Card>
@@ -218,8 +222,8 @@ function TextRating() {
 
 function OutlinedButtons() {
   return (
-      <Button variant="outlined" href="#outlined-buttons" endIcon={<ShareIcon/>}>
-        share 
+      <Button  color="success" variant="outlined" href="#outlined-buttons" endIcon={<AddBoxIcon/>}>
+        내가 먹는 영양제에 추가
       </Button>
   );
 }
@@ -251,5 +255,47 @@ function GutterlessList() {
       </Grid>
       </Grid>
     </Card>
+  );
+}
+
+function BasicList() {
+  return (
+    <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+      <nav aria-label="main mailbox folders">
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Inbox" />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <DraftsIcon />
+              </ListItemIcon>
+              <ListItemText primary="Drafts" />
+            </ListItemButton>
+          </ListItem>
+        </List>
+      </nav>
+      <Divider />
+      <nav aria-label="secondary mailbox folders">
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemText primary="Trash" />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton component="a" href="#simple-list">
+              <ListItemText primary="Spam" />
+            </ListItemButton>
+          </ListItem>
+        </List>
+      </nav>
+    </Box>
   );
 }
