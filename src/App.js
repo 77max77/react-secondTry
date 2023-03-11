@@ -37,6 +37,9 @@ import IconButton from '@mui/material/IconButton';
 
 import Divider from '@mui/material/Divider';
 
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
+
 
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
@@ -63,6 +66,7 @@ export default function App() {
       <Typography fixed sx={{mt:10,mb:5,fontSize:25}}  variant="h3">
         제품 리뷰
       </Typography>
+      <AlignItemsList></AlignItemsList>
       </Container>
      
     </div>
@@ -178,7 +182,7 @@ function ThirdCard() {
     </Card>
   );
 }
-
+/*
 function ForthCard() {
   return (
     <Card sx={{ minWidth: 275 }}>
@@ -196,6 +200,7 @@ function ForthCard() {
     </Card>
   );
 }
+*/
 
 function BasicChips() {
   return (
@@ -251,6 +256,31 @@ function TextRating() {
   );
 }
 
+
+function TextRating2() {
+  const value = 3;
+
+  return (
+    <Box
+      sx={{
+        width: 200,
+        display: 'flex',
+        alignItems: 'center',
+      }}
+    >
+      <Rating
+        name="text-feedback"
+        value={value}
+        readOnly
+        precision={0.5}
+        emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+      />
+      <Box sx={{ ml: 2 }}>{labels[value]}</Box>
+    </Box>
+  );
+}
+
+
 function OutlinedButtons() {
   return (
       <Button  color="success" variant="outlined" href="#outlined-buttons" endIcon={<AddBoxIcon/>}>
@@ -283,7 +313,6 @@ function GutterlessList() {
       </List>
       </Grid>
       </Grid>
-    
   );
 }
 
@@ -314,5 +343,39 @@ function BasicList() {
         </List>
       </nav>
     </Box>
+  );
+}
+
+function AlignItemsList() {
+  return (
+    <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
+      <ListItem alignItems="flex-start">
+        <ListItemAvatar>
+          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+        </ListItemAvatar>
+        <ListItemText
+          primary="username"
+          secondary={
+            <React.Fragment>
+              <Typography
+                sx={{ display: 'inline' }}
+                component="span"
+                variant="body2"
+                color="text.primary"
+              >
+              <TextRating2></TextRating2>
+              </Typography>
+              {"text"}
+              <CardMedia 
+            sx={{ml:5, height: 400,width:200 }}
+            image="https://cdn.snapfit.co.kr/review/contents/stores/questlife/20221030/medium_9e0a2b8226a8c47d432c2d0ef867895c.jpg"
+            //title=
+            />
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+      <Divider variant="inset" component="li" />
+    </List>
   );
 }
